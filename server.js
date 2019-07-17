@@ -13,6 +13,29 @@ var app = express();
 // Connecting to PORT
 var PORT = 3000;
 
+// Config middleware
+// Parse request body as JSON
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Make public a static folder
+app.use(express.static("public"));
+
+// Connect to Mongo DB
+mongoose.connect("mongodb://localhost/Article-Scraper", { useNewUrlParser: true });
+
+// Configure handlebars
+app.engine(
+    "hbs",
+    exphbs({
+        defaultLayout: "main",
+        extname: ".hbs",
+        layoutsDir: "views/layouts/",
+    })
+);
+app.set("view engine", "hbs");
+app.set("views", __dirname + "/views");
+
 // Routes
 require("./routes/userRoutes")(app);
 
