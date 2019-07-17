@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amandadovel/Article-Scrape.git"
+    "url": "git+https://github.com/amandadovel/Article-Scraper.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/amandadovel/Article-Scrape/issues"
+    "url": "https://github.com/amandadovel/Article-Scraper/issues"
   },
-  "homepage": "https://github.com/amandadovel/Article-Scrape#readme",
+  "homepage": "https://github.com/amandadovel/Article-Scraper#readme",
   "dependencies": {
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3",
