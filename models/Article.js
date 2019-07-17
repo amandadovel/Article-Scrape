@@ -15,11 +15,14 @@ const ArticleSchema = new Schema({
         type: String,
         required: true
     },
-
     // `Image is required and type oF String
     image: {
         type: String,
         required: true
+    },
+    saved: {
+        type: Boolean,
+        default: false
     },
     // `note` is an object that stores a Note id 
     // The ref property links the ObjectId to the Note model 
