@@ -1,17 +1,13 @@
 // Dependencies
-var express = require("express");
-var exphbs = require("express-handlebars");
-var mongoose = require("mongoose");
-
-// Require Axios and Cheerio to make scraping possible 
-var axios = require("axios");
-var cheerio = require("cheerio");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const mongoose = require("mongoose");
 
 // Initialize express
-var app = express();
+const app = express();
 
 // Connecting to PORT
-var PORT = 3000;
+const PORT = 3000;
 
 // Config middleware
 // Parse request body as JSON
@@ -22,7 +18,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to Mongo DB
-mongoose.connect("mongodb://localhost/Article-Scraper", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/article_scraper", { useNewUrlParser: true });
 
 // Configure handlebars
 app.engine(
