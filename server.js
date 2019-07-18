@@ -35,7 +35,7 @@ app.engine(
     })
 );
 app.set("view engine", "hbs");
-app.set("views", __dirname + "/views");
+// app.set("views", __dirname + "/views");
 
 // Routes
 // require("./routes/userRoutes")(app);

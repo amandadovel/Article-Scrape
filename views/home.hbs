@@ -1,16 +1,24 @@
 <h1>Home</h1>
+
 <button id="scrape">Scrape</button>
+
 {{#each articles}}
+
 <div>
     <h3>{{this.title}}</h3>
-    <a href="{{this.link}}">View Article</a>
+    <a href="{{this.link}}" target="_blank">View Article</a>
     <img src={{this.image}}>
     <button class="save">Save Article</button>
 </div>
+
 {{/each}}
+
 {{#unless articles.length}}
+
 <h1>No saved articles</h1>
+
 {{/unless}}
+
 <script>
     $("#scrape").on("click",() => {
         $.getJSON("/scrape", (response) => {

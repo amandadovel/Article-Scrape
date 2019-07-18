@@ -7,10 +7,13 @@ const router = require("express").Router();
 const db = require("../models");
 
 router.get("/", (req, res) => {
-    db.Article.find({ saved: false })
-        .then((articles) => {
-            res.render("home", { articles: articles })
-        })
+    // Meta tags sent to handlebars
+    res.locals.metaTags = {
+        title: "Article Scraper | Home"
+    }
+    db.Article.find({ saved: false }).then((articles) => {
+        res.render("home", { articles: articles })
+    })
 })
 router.get("/scrape", (req, res) => {
     // Grab body of html with axios
@@ -37,7 +40,7 @@ router.get("/scrape", (req, res) => {
                     link: link,
                     image: image
                 },
-                     (err, inserted) => {
+                    (err, created) => {
                         if (err) {
                             // Log the error if one is encountered during the query
                             console.log(err);
@@ -45,10 +48,10 @@ router.get("/scrape", (req, res) => {
                         else {
                             // // Otherwise, log the inserted data
                             // console.log(inserted);
-                            count --
-                            if(count === 0) {
+                            count--
+                            if (count === 0) {
                                 res.json(total)
-                            } 
+                            }
                         }
                     });
             }
