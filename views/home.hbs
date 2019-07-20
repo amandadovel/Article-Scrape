@@ -1,29 +1,35 @@
-<h1>Home</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-nav">
+  <a class="navbar-brand" href="#">Nomadic Matt Article Scraper</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/saved">Saved Articles</a>
+    </div>
+  </div>
+</nav>
+    <div class="btn-style">
+      <button id="scrape">Scrape New Articles</button>
+      <button id="clear">Clear Articles</button>
+    </div>
 
-<button id="scrape">Scrape</button>
+<div class="container">
 
-{{#each articles}}
+    <div class="all-articles">
+        {{#each articles}}
+        <h3>{{this.title}}</h3>
+        <a href="{{this.link}}" target="_blank">View Article</a>
+        <img src={{this.image}}>
+        <button class="save" data-id="{{ this.id }}">Save Article</button>
+        {{/each}}
+    </div>
 
-<div>
-    <h3>{{this.title}}</h3>
-    <a href="{{this.link}}" target="_blank">View Article</a>
-    <img src={{this.image}}>
-    <button class="save">Save Article</button>
+    {{#unless articles.length}}
+    <h1>No available articles</h1>
+    {{/unless}}
+
 </div>
-
-{{/each}}
-
-{{#unless articles.length}}
-
-<h1>No saved articles</h1>
-
-{{/unless}}
-
-<script>
-    $("#scrape").on("click",() => {
-        $.getJSON("/scrape", (response) => {
-            alert(`Successfully Scraped ${response} articles`)
-            window.location.reload();
-        })
-    }) 
-</script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/app.js"></script>
