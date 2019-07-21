@@ -1,13 +1,13 @@
 $(document).ready(() => {
-    $("#scrape").on("click",() => {
+    $("#scrape").on("click", () => {
         $.getJSON("/scrape", response => {
             // alert(`Successfully Scraped ${response} articles`)
             window.location.reload();
         })
     });
-    
+
     // When you click on the save article button
-    $(".save").on("click", function (event)  {
+    $(".save").on("click", function (event) {
 
         let id = $(this).data("id");
 
@@ -15,7 +15,7 @@ $(document).ready(() => {
         $.ajax({
             method: "PUT",
             url: "/saved/" + id,
-            data: {saved: true}
+            data: { saved: true }
         }).then(() => {
             // Reload page to get the updated list
             location.reload();
@@ -25,36 +25,32 @@ $(document).ready(() => {
     });
 
     // When you click the comment button
-    $(".comment").on("click", function (event) {
+    $(".comment-btn").on("click", function (event) {
         // Grab the id associated with the article from the submit button
         let thisId = $(this).data("id");
-
+        let newComment = $("#comment").val().trim();
         // Send put request
         $.ajax({
             method: "POST",
-            url:"/api/comment",
+            url: "/api/comment/" + thisId,
             data: {
                 // Value taken from note text area
                 _id: thisId,
-                commentText: $("#comment").val().trim()
+                commentText: newComment
             }
+        }).then(data => {
+            console.log(data);
+        }).catch(err =>{
+            console.log(err);
         })
+    })
+});
 
-
-
-        // Run a post request to change the note, using what's entered in the inputs
-        $.ajax({
-            method: "POST",
-            url: "/article"
+// Clear button
+$("#clear").on("click", (event) => {
+    $.get("api/clear")
+        .then(data => {
+            $(".container").empty();
+            location.reload();
         });
-    });
-
-    // Clear button
-    $("#clear").on("click", (event) => {
-           $.get("api/clear")
-            .then(data => {
-                $(".container").empty();
-                location.reload();
-            });
-    });
 });

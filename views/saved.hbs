@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-nav">
-    <a class="navbar-brand" href="#">Nomadic Matt Article Scraper</a>
+<nav class="navbar navbar-expand-lg custom-nav">
+    <div class="navbar-brand nav-head">Nomadic Matt Travel Scraper</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -17,19 +17,20 @@
 
     {{#each articles}}
         {{#if saved}}
+        {{!-- Article start --}}
+        <div class="all-articles text-center">
             <h3>{{this.title}}</h3>
             <a href="{{this.link}}" target="_blank">View Article</a>
             <img src={{this.image}}>
+        </div>    
 
             {{!-- leave a comment, delete a comment, show comments --}}
             <form>
-                <input type="hidden" name="id" value="{{this.id}}">
+                <input type="hidden" name="id">
                 <div class="form-group">
                     <label for="comment">Comments</label>
-                    <textarea class="form-control" id="comment" name="comment" rows="3">
-                        </textarea>
-                    <button class="comment" data-id="{{this.id}}">Comment</button>
-                    <button class="delete-comment" data-id="{{this.id}}">Delete Comment</button>
+                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                     <button class="btn btn-primary float-right comment-btn" data-id="{{this.id}}">Submit comment</button>
                 </div>
             </form>
             <br><br>
@@ -39,9 +40,11 @@
             <hr>
             {{#if comment }}
                 {{#each comment }}
-                <p>{{data.commentText}}</p>
+                <p>{{this.commentText}}</p>
+                <button class="btn btn-light delete-comment float-right" data-id="{{this.id}}">Delete this comment</button>
                 <br>
                 <hr>
+                <br>
                 {{/each}}
                 {{else}}
                 <p>No comments added yet. </p>

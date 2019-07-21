@@ -1,0 +1,42 @@
+/* Background image and style */
+body {
+    background: url("/images/Optimized-dust.jpg") center center fixed;
+    background-size: cover;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+}
+
+/* Navbar style */
+.nav-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    text-shadow: black 2px 2px 2px;
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: white;
+    text-shadow: black 2px 2px 2px;
+}
+
+/* Save and view link style */
+
+.btn-style {
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: black;
+}
+
+.view {
+    text-decoration: none !important;
+    color: black;
+}
