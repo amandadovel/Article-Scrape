@@ -5,10 +5,17 @@ body {
 }
 
 /* Headings */
-h2 {
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: white;
     text-align: center;
+    padding-top: 30px;
+    text-shadow: black 2px 2px 2px;  
 }
 
+.card-header {
+    font-family: 'Playfair Display', serif;
+}
 /* Navbar style */
 .nav-head {
     font-family: 'Playfair Display', serif;
@@ -19,24 +26,60 @@ h2 {
 
 .nav-link {
     color: white;
+    font-size: 18px;
+    text-shadow: black 1px 1px 1px;
 }
 
 .nav-link:hover {
     color: white;
     text-shadow: black 2px 2px 2px;
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
 }
 
+/* Scrape and Clear button style */
+#scrape,
+#clear {
+    background-color: rgba(0, 0, 0, 0.445);
+    color: white;
+    border: black;
+    box-shadow: white 2px 2px 20px 2px;
+}
+#scrape:hover,
+#clear:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+}
+/* Card style */
+.card {
+    background-color: rgba(255, 255, 255, 0.911);
+    border-color: #473222;
+    box-shadow: #473222 3px 3px 30px 5px;
+    
+}
 /* Save and view link style */
 
-.btn-style {
+.view-save {
     cursor: pointer;
     text-decoration: none;
     font-family: 'Playfair Display', serif;
     font-size: 24px;
-    color: black;
+
 }
 
+.save,
 .view {
     text-decoration: none !important;
     color: black;
+    transition: all .25s;
 }
+
+.view:hover,
+.save:hover{
+    color: #1a5cb1 !important;
+}
+
+
+
+
+

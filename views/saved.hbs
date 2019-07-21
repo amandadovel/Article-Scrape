@@ -14,49 +14,57 @@
 
 <div class="container">
     <h1>Saved Articles</h1>
-
     {{#each articles}}
-        {{#if saved}}
-        {{!-- Article start --}}
-        <div class="all-articles text-center">
-            <h3>{{this.title}}</h3>
-            <a href="{{this.link}}" target="_blank">View Article</a>
+    {{#if saved}}
+
+    {{!-- Article start --}}
+    <div class="card all-articles text-center mx-auto my-5" style="width: 24em">
+        <div class="card-header">
+        <h3>{{this.title}}</h3>
+        </div>
+
+        <div class="card-body">
             <img src={{this.image}}>
-        </div>    
+            <div class="row view-save justify-content-center mt-3">
+                <a class="col-md-12 view" href="{{this.link}}" target="_blank">View Article</a>
+            </div>
+        </div>
+        {{!-- leave a comment, delete a comment, show comments --}}
+        <form>
+            <input type="hidden" name="id">
+            <div class="form-group">
+                <label for="comment">Comments</label>
+                <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                <button class="btn btn-primary float-right comment-btn" data-id="{{this.id}}">Submit comment</button>
+            </div>
+        </form>
+    </div>
+        <br>
+        <br>
 
-            {{!-- leave a comment, delete a comment, show comments --}}
-            <form>
-                <input type="hidden" name="id">
-                <div class="form-group">
-                    <label for="comment">Comments</label>
-                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
-                     <button class="btn btn-primary float-right comment-btn" data-id="{{this.id}}">Submit comment</button>
-                </div>
-            </form>
-            <br><br>
-
-            {{!-- Prints Comments associated with article --}}
-            <h4>Previous Comments</h4>
-            <hr>
-            {{#if comment }}
-                {{#each comment }}
-                <p>{{this.commentText}}</p>
-                <button class="btn btn-light delete-comment float-right" data-id="{{this.id}}">Delete this comment</button>
-                <br>
-                <hr>
-                <br>
-                {{/each}}
-                {{else}}
-                <p>No comments added yet. </p>
-            {{/if}}
+        {{!-- Prints Comments associated with article --}}
+        <h4>Previous Comments</h4>
+        <hr>
+        {{#if comment }}
+        {{#each comment }}
+        <p>{{this.commentText}}</p>
+        <button class="btn btn-light delete-comment float-right" data-id="{{this.id}}">Delete this comment</button>
+        <br>
+        <hr>
+        <br>
+        {{/each}}
+        {{else}}
+        <p>No comments added yet. </p>
+        {{/if}}
 
         {{/if}}
-    {{/each}}
+        {{/each}}
+        </div>
+        {{#unless articles.length}}
+        <h1>No saved articles</h1>
+        {{/unless}}
 
-    {{#unless articles.length}}
-    <h3>No saved articles</h3>
-    {{/unless}}
-
+  
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

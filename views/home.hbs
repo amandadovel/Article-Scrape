@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg custom-nav">
+<nav class="navbar navbar-expand-lg custom-nav mb-3">
     <div class="navbar-brand nav-head">Nomadic Matt Travel Scraper</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,8 +12,8 @@
     </div>
 </nav>
 <div class="btn-style text-center">
-    <button type="button" class="btn btn-dark" id="scrape">Scrape New Articles</button>
-    <button type="button" class="btn btn-dark" id="clear">Clear Articles</button>
+    <button type="button" class="btn-lg btn mx-4" id="scrape">Scrape Articles</button>
+    <button type="button" class="btn-lg btn mx-4" id="clear">Clear Articles</button>
 </div>
 
 <div class="container">
@@ -23,10 +23,10 @@
             <div class="card-header">
             <h3>{{this.title}}</h3>
             </div>
+
             <div class="card-body">
             <img src={{this.image}}>
-  
-                <div class="row btn-style">
+                <div class="row view-save mt-3">
                     <a class="col-md-6 save" data-id="{{ this.id }}">Save Article</a>
                     <a class="col-md-6 view" href="{{this.link}}" target="_blank">View Article</a>
                 </div>
