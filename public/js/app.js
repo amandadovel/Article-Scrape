@@ -24,26 +24,26 @@ $(document).ready(() => {
         });
     });
 
-    // When you click the comment button
-    $(".comment-btn").on("click", function (event) {
-        // Grab the id associated with the article from the submit button
-        let thisId = $(this).data("id");
-        let newComment = $("#comment").val().trim();
-        // Send put request
-        $.ajax({
-            method: "POST",
-            url: "/api/comment/" + thisId,
-            data: {
-                // Value taken from note text area
-                _id: thisId,
-                commentText: newComment
-            }
-        }).then(data => {
-            console.log(data);
-        }).catch(err =>{
-            console.log(err);
-        })
-    })
+    // // When you click the comment button
+    // $(".comment-btn").on("click", function (event) {
+    //     // Grab the id associated with the article from the submit button
+    //     let thisId = $(this).data("id");
+    //     let newComment = $("#comment").val().trim();
+    //     // Send put request
+    //     $.ajax({
+    //         method: "POST",
+    //         url: "/api/comment/" + thisId,
+    //         data: {
+    //             // Value taken from note text area
+    //             _id: thisId,
+    //             commentText: newComment
+    //         }
+    //     }).then(data => {
+    //         console.log(data);
+    //     }).catch(err =>{
+    //         console.log(err);
+    //     })
+    // })
 });
 
 // Clear button

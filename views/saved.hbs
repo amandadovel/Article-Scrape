@@ -1,3 +1,4 @@
+{{!-- Navbar --}}
 <nav class="navbar navbar-expand-lg custom-nav">
     <div class="navbar-brand nav-head">Nomadic Matt Travel Scraper</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -11,14 +12,18 @@
         </div>
     </div>
 </nav>
+{{!-- Navbar end --}}
 
+{{!-- Main container start --}}
 <div class="container">
     <h1>Saved Articles</h1>
+
     {{#each articles}}
     {{#if saved}}
 
-    {{!-- Article start --}}
-    <div class="card all-articles text-center mx-auto my-5" style="width: 24em">
+    {{!-- Saved Article start --}}
+    <div class="card all-articles text-center mx-auto my-5" style="width: 24em" data-id="{{this.id}}">
+       
         <div class="card-header">
         <h3>{{this.title}}</h3>
         </div>
@@ -29,43 +34,53 @@
                 <a class="col-md-12 view" href="{{this.link}}" target="_blank">View Article</a>
             </div>
         </div>
-        {{!-- leave a comment, delete a comment, show comments --}}
-        <form>
-            <input type="hidden" name="id">
-            <div class="form-group">
-                <label for="comment">Comments</label>
-                <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
-                <button class="btn btn-primary float-right comment-btn" data-id="{{this.id}}">Submit comment</button>
+    </div>
+    {{!-- Saved articles end --}}
+
+        {{!-- Comment Form --}}
+        <div class="card">
+            <form class="mb-3" action="/comment" method="POST">
+            <input type="hidden" name="id" value="{{this.id}}">
+                <div class="form-group">
+                    <label for="comment">Comments</label>
+                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                </div>
+            <div class="text-center">
+                <button class="btn btn-primary comment-btn" data-id="{{this.id}}">Submit comment</button>
+            </div>
             </div>
         </form>
-    </div>
-        <br>
-        <br>
-
-        {{!-- Prints Comments associated with article --}}
-        <h4>Previous Comments</h4>
-        <hr>
-        {{#if comment }}
-        {{#each comment }}
-        <p>{{this.commentText}}</p>
-        <button class="btn btn-light delete-comment float-right" data-id="{{this.id}}">Delete this comment</button>
-        <br>
-        <hr>
-        <br>
-        {{/each}}
-        {{else}}
-        <p>No comments added yet. </p>
-        {{/if}}
-
-        {{/if}}
-        {{/each}}
+        {{!-- Comment form end --}}
+  
+    {{!-- Prints previous comments --}}
+    {{#if comment }}
+        <div class="card-header">
+            <h4>Previous Comments</h4>
         </div>
-        {{#unless articles.length}}
-        <h1>No saved articles</h1>
-        {{/unless}}
+            <div class="card-body">
+            {{#each comment }}
+                <div class="card-text">
+                    <span>{{this.commentText}}</span>
+                    <span class="ml-auto"><a class="delete-comment-btn" href="" data-id="{{this._id}}">Delete Comment</a></span>
+                </div>
+            {{/each}}
+            </div>
 
+        <br><br>
+    {{/if}}
+    {{!-- Previous comments end --}}
+
+    {{/if}}
+    {{/each}}
+
+        {{!-- If there are no articles  --}}
+        {{#unless articles.length}}
+            <h1>No saved articles</h1>
+        {{/unless}}
   
 </div>
+
+{{!-- Scripts --}}
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="/js/app.js"></script>

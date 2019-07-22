@@ -88,38 +88,18 @@ router.put("/saved/:id", (req, res) => {
     });
 });
 
-// Route for grabbing a specific Article by id, populate it with it's Comment
-router.get("/comment/:id", (req, res) => {
-    // Using the id passed in the id parameter, prepare a query that finds the matching one in our db
-    db.Article.findOne({ _id: req.params.id })
-        // and populate all of the Comments associated with it
-        .populate("comment")
-        .then((dbArticle) => {
-            // If we were able to successfully find an Article with the given id, send it back to the client
-            res.status(200).json(dbArticle);
-        })
-        .catch(err => {
-            // If an error occurred, send it to the client
-            res.json(err);
-        });
-});
-
-// Route for saving/updating an Article's associated Comment
-router.post("/api/comment/:id", (req, res) => {
+// Comment on article
+router.post("/comment", (req, res) => {
     console.log("Req body", req.body);
     // Create a new Comment and pass the req.body to the entry
-    db.Comment.create({ commentText: req.body.commentText })
+    db.Comment.create({ commentText: req.body.comment})
         .then(dbComment => {
-            console.log("DB NOTE: ", dbNote)
             return db.Article.findOneAndUpdate({_id: req.params.id},
-                {comment: dbComment._id},
+                {$push: dbComment._id},
                 { new: true });
-        })
-        .then(dbArticle => {
-            console.log("DB article:", dbArticle) 
-            res.status(200).json(dbArticle);
-        })
-        .catch(err => {
+        }).then(dbArticle => {
+            res.status(200).redirect("/saved");
+        }).catch(err => {
             res.json(err);
         });
 });
