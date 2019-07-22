@@ -1,10 +1,12 @@
 /* Background image and style */
+
 body {
     background: url("/images/Optimized-dust.jpg") center center fixed;
     background-size: cover;
 }
 
 /* Headings */
+
 h1 {
     font-family: 'Playfair Display', serif;
     color: white;
@@ -16,7 +18,9 @@ h1 {
 .card-header {
     font-family: 'Playfair Display', serif;
 }
+
 /* Navbar style */
+
 .nav-head {
     font-family: 'Playfair Display', serif;
     font-size: 38px;
@@ -38,6 +42,7 @@ h1 {
 }
 
 /* Scrape and Clear button style */
+
 #scrape,
 #clear {
     background-color: rgba(0, 0, 0, 0.445);
@@ -79,7 +84,29 @@ h1 {
     color: #1a5cb1 !important;
 }
 
+/* ~~~~~~~~~ SAVED PAGE STYLE ~~~~~~~~~~~~~~~ */
+/* Card style */
 
+/* Card image style */
+.saved-card-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* comment button style */
+
+.comment-btn {
+    background-color: black;
+    color: white;
+    border: black;
+    box-shadow: #473222 1px 1px 10px 1px;
+}
+
+.comment-btn:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+    background-color: black;
+}
 
 
 
