@@ -17,6 +17,10 @@
 
 {{!-- Main container start --}}
 <div class="container">
+    
+<div class="row">
+    <div class="col-md-4">
+
     <h1>Saved Articles</h1>
 
     {{#each articles}}
@@ -34,9 +38,12 @@
                 </div>
             </div>
         </div>
+    </div>  
+
         {{!-- Saved articles end --}}
 
             {{!-- Comment Form --}}
+        <div class="col-md-8">
         <div class="card">
             <form class="mb-3" action="/comment" method="POST">
                 <input type="hidden" name="id" value="{{this.id}}">
@@ -44,7 +51,7 @@
                     <div class="card-header">
                     <h4><label for="comment">Comments</label></h4>
                     </div>
-                    <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                    <textarea class="form-control" name="comment" id="comment"  rows="3"></textarea>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-primary comment-btn" data-id="{{this.id}}">Submit comment</button>
@@ -59,17 +66,20 @@
             <div class="card-header">
                 <h4>Previous Comments</h4>
             </div>
+                <hr class="divider my-0">
                 <div class="card-body">
                     {{#each comment}}
                         <div class="card-text">
                             <span>{{this.commentText}}</span>
-                            <span class="ml-auto"><a class="delete-comment-btn" href="" data-id="{{this._id}}">Delete Comment</a></span>
+                            <span class="mr-auto"><a class="delete-comment-btn" href="" data-id="{{this._id}}">Delete Comment</a></span>
                         </div>
                     {{/each}}
                 </div>
             </div>
-            <br><br>
-        {{/if}}
+        </div>
+</div>
+<br><br>
+    {{/if}}
         {{!-- Previous comments end --}}
 
         {{/if}}

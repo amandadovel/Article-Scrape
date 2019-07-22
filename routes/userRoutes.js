@@ -73,7 +73,7 @@ router.get("/saved", (req, res) => {
     res.locals.metaTags = {
         title: "Saved Articles | Home"
     }
-    db.Article.find({ saved: true }).then(articles => {
+    db.Article.find({ saved: true }).populate("comment").then(articles => {
         res.render("saved", { articles: articles });
     }).catch(err => {
         console.log(err);
@@ -102,6 +102,17 @@ router.post("/comment", (req, res) => {
         }).catch(err => {
             res.json(err);
         });
+});
+
+// Delete comment
+router.delete("/delete/:id", (req, res) => {
+    // find by id and delete from database
+    db.Comment.deleteOne({_id: req.params.id }).then(dbComment => {
+        // redirect to saved page after delete
+        res.status(200).redirect("/saved");
+    }).catch(err => {
+        res.json(err);
+    });
 });
 
 // Clear all articles from database

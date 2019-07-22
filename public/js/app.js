@@ -24,26 +24,23 @@ $(document).ready(() => {
         });
     });
 
-    // // When you click the comment button
-    // $(".comment-btn").on("click", function (event) {
-    //     // Grab the id associated with the article from the submit button
-    //     let thisId = $(this).data("id");
-    //     let newComment = $("#comment").val().trim();
-    //     // Send put request
-    //     $.ajax({
-    //         method: "POST",
-    //         url: "/api/comment/" + thisId,
-    //         data: {
-    //             // Value taken from note text area
-    //             _id: thisId,
-    //             commentText: newComment
-    //         }
-    //     }).then(data => {
-    //         console.log(data);
-    //     }).catch(err =>{
-    //         console.log(err);
-    //     })
-    // })
+    // Delete comment on click function
+    $(".delete-comment-btn").on("click", function (event) {
+
+        let id = $(this).data("id");
+
+        //Send put request with ajax
+        $.ajax({
+            method: "DELETE",
+            url: "/delete/" + id,
+            data: { _id: id }
+        }).then(() => {
+            location.reload();
+        }).catch(err => {
+            console.log(err);
+        });
+    });
+
 });
 
 // Clear button
