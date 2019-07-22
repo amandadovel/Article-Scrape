@@ -94,8 +94,8 @@ router.post("/comment", (req, res) => {
     // Create a new Comment and pass the req.body to the entry
     db.Comment.create({ commentText: req.body.comment})
         .then(dbComment => {
-            return db.Article.findOneAndUpdate({_id: req.params.id},
-                {$push: dbComment._id},
+            return db.Article.findOneAndUpdate({ _id: req.body.id },
+                { $push: { comment: dbComment._id } },
                 { new: true });
         }).then(dbArticle => {
             res.status(200).redirect("/saved");
