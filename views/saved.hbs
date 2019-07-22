@@ -1,9 +1,7 @@
-    
 {{!-- Navbar --}}
 <nav class="navbar navbar-expand-lg custom-nav">
     <div class="navbar-brand nav-head">Nomadic Matt Travel Scraper</div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -17,84 +15,93 @@
 
 {{!-- Main container start --}}
 <div class="container">
-    <h1>Saved Articles</h1>
     
-<div class="row mt-5">
+    {{!-- Header Start --}}
+    <h1>Saved Articles</h1>
+    {{!-- Header End --}}
 
     {{#each articles}}
         {{#if saved}}
 
-    <div class="col-md-4">
-        {{!-- Saved Article start --}}
-        <div class="card all-articles text-center" data-id="{{this.id}}" style="width:24em">
-            <div class="card-header">
-                <h3>{{this.title}}</h3>
-            </div>
-            <div class="card-body">
-                <img src={{this.image}} class="saved-card-img">
-                <div class="view-save justify-content-center mt-3">
-                    <div class="row view-save mt-3">
-                    <a class="col-md-6 view" href="{{this.link}}" target="_blank">View Article</a>
-                    <a class="col-md-6 unsave-btn" href="" data-id="{{this.id}}">Unsave Article</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>  
+            {{!-- Row Start --}}
+            <div class="row justify-content-between mt-5">
 
-        {{!-- Saved articles end --}}
-
-        {{!-- Comment Form --}}
-        <div class="col-md-8" style="padding-left:3em">
-        <div class="card" style="width:42em">
-            <form class="mb-3" action="/comment" method="POST">
-                <input type="hidden" name="id" value="{{this.id}}">
-                <div class="form-group">
-                    <div class="card-header text-center">
-                    <h4><label for="comment">Comments</label></h4>
+                {{!-- Saved article start --}}
+                <div class="card all-articles text-center col-md-4" data-id="{{this.id}}">
+                    <div class="card-header">
+                        <h3>{{this.title}}</h3>
                     </div>
-                    <textarea class="form-control" name="comment" id="comment"  rows="3"></textarea>
-                </div>
-                <div class="text-center">
-                    <button class="btn btn-primary comment-btn" data-id="{{this.id}}">Submit Comment</button>
-                </div>
-            </form>
-        </div>
-            {{!-- Comment form end --}}
-    
-        {{!-- Prints previous comments --}}
-        {{#if comment}}
-            <div class="card text-center mt-3" style="width:42em">
-            <div class="card-header">
-                <h4>Previous Comments</h4>
-            </div>
-                <hr class="divider my-0">
-                <div class="card-body">
-                    {{#each comment}}
-                        <div class="card-text">
-                            <span>{{this.commentText}}</span>
-                            <span class="p-5"><a class="delete-comment-btn" href="" data-id="{{this._id}}">
-                                <img src="/images/trash-icon.png" alt="trash-icon" height="3%" width="3%"></a></span>
+                    <div class="card-body">
+                        <img src={{this.image}} class="saved-card-img img-fluid">
+                        <div class="view-save justify-content-center mt-3">
+                            <a class="view" href="{{this.link}}" target="_blank">View Article</a>
+                            <a class="col-md-6 unsave-btn" href="" data-id="{{this.id}}">Unsave Article</a>
                         </div>
-                    {{/each}}
+                    </div>
                 </div>
+                {{!-- Saved article end --}}
+
+                {{!-- Comment Column Start --}}
+                <div class="col-md-7">
+
+                    {{!-- Comment form start --}}
+                    <div class="card">
+                        <form class="mb-3" action="/comment" method="POST">
+                            <input type="hidden" name="id" value="{{this.id}}">
+                            <div class="form-group">
+                                <div class="card-header text-center">
+                                    <h4><label for="comment">Comments</label></h4>
+                                </div>
+                                <textarea class="form-control" name="comment" id="comment"  rows="3"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary comment-btn" data-id="{{this.id}}">Submit Comment</button>
+                            </div>
+                        </form>
+                    </div>
+                    {{!-- Comment form end --}}
+
+                    {{!-- Previous comments start --}}
+                    {{#if comment}}
+                        <div class="card mt-4">
+                            <div class="card-header text-center mt-5">
+                                <h4>Previous Comments</h4>
+                            </div>
+                            <hr class="divider my-0">
+                            <div class="card-body">
+                                {{#each comment}}
+                                    <div class="card-text">
+                                        <span>{{this.commentText}}</span>
+                                        <span class="p-5">
+                                            <a class="delete-comment-btn" href="" data-id="{{this._id}}"><i class="far fa-trash-alt"></i></a>
+                                        </span>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                        <br><br>
+                    {{/if}}
+                    {{!-- Previous comments end --}}
+
+                </div>
+                {{!-- Comment Column End --}}
+
             </div>
-        </div>
-</div>
-<br><br>
-    {{/if}}
-        {{!-- Previous comments end --}}
+            {{!-- Row End --}}
 
         {{/if}}
     {{/each}}
 
-    {{!-- If there are no articles  --}}
+    {{!-- No articles display start  --}}
     {{#unless articles.length}}
         <h1>No saved articles</h1>
     {{/unless}}
-  
+    {{!-- No articles display end  --}}
+
 </div>
+{{!-- Main container end --}}
 
 {{!-- Scripts --}}
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="/js/app.js"></script>
+```

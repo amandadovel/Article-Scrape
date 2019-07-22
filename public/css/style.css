@@ -68,19 +68,21 @@ h1 {
     cursor: pointer;
     text-decoration: none;
     font-family: 'Playfair Display', serif;
-    font-size: 24px;
+    font-size: 20px;
 
 }
 
 .save,
-.view {
+.view,
+.unsave-btn {
     text-decoration: none !important;
     color: black;
     transition: all .25s;
 }
 
 .view:hover,
-.save:hover{
+.save:hover,
+.unsave-btn:hover {
     color: #1a5cb1 !important;
 }
 
