@@ -9,7 +9,7 @@ const app = express();
 
 
 // Connecting to PORT
-const PORT = 3000;
+const PORT = 5000;
 
 // Config middleware
 // Parse request body as JSON
@@ -31,17 +31,14 @@ app.engine(
     exphbs({
         defaultLayout: "main",
         extname: ".hbs",
-        // layoutsDir: "views/layouts/",
     })
 );
 app.set("view engine", "hbs");
-// app.set("views", __dirname + "/views");
 
 // Routes
-// require("./routes/userRoutes")(app);
 app.use(routes);
 
 // Start the server
-app.listen(PORT, function () {
+app.listen(PORT,  () => {
     console.log("App running on port " + PORT + "!");
 });
