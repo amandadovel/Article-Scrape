@@ -24,6 +24,23 @@ $(document).ready(() => {
         });
     });
 
+    // Unsave article button
+    $(".unsave-btn").on("click", function (event) {
+
+        let id = $(this).data("id");
+
+        // Send put request with ajax
+        $.ajax({
+            method: "PUT",
+            url: "/unsaved/" + id,
+            data: { saved: false }
+        }).then(() => {
+            location.reload();
+        }).catch(err => {
+            console.log(err);
+        });
+    });
+
     // Delete comment on click function
     $(".delete-comment-btn").on("click", function (event) {
 

@@ -88,6 +88,15 @@ router.put("/saved/:id", (req, res) => {
     });
 });
 
+// Unsave article 
+router.put("/unsaved/:id", (req, res) => {
+
+    // update article to "saved: false"
+    db.Article.update({ _id: req.params.id }, { $set: { saved: req.body.saved }}, result => {
+        res.status(200).json({ message: "Saved Status Changed"})
+    });
+});
+
 // Comment on article
 router.post("/comment", (req, res) => {
     console.log("Req body", req.body);

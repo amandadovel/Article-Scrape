@@ -26,14 +26,17 @@
 
     <div class="col-md-4">
         {{!-- Saved Article start --}}
-        <div class="card all-articles text-center" data-id="{{this.id}}">
+        <div class="card all-articles text-center" data-id="{{this.id}}" style="width:24em">
             <div class="card-header">
                 <h3>{{this.title}}</h3>
             </div>
             <div class="card-body">
                 <img src={{this.image}} class="saved-card-img">
                 <div class="view-save justify-content-center mt-3">
-                    <a class="view" href="{{this.link}}" target="_blank">View Article</a>
+                    <div class="row view-save mt-3">
+                    <a class="col-md-6 view" href="{{this.link}}" target="_blank">View Article</a>
+                    <a class="col-md-6 unsave-btn" href="" data-id="{{this.id}}">Unsave Article</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,8 +45,8 @@
         {{!-- Saved articles end --}}
 
         {{!-- Comment Form --}}
-        <div class="col-md-8">
-        <div class="card">
+        <div class="col-md-8" style="padding-left:3em">
+        <div class="card" style="width:42em">
             <form class="mb-3" action="/comment" method="POST">
                 <input type="hidden" name="id" value="{{this.id}}">
                 <div class="form-group">
@@ -61,7 +64,7 @@
     
         {{!-- Prints previous comments --}}
         {{#if comment}}
-            <div class="card text-center mt-5">
+            <div class="card text-center mt-3" style="width:42em">
             <div class="card-header">
                 <h4>Previous Comments</h4>
             </div>
