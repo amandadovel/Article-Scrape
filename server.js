@@ -9,7 +9,7 @@ const app = express();
 
 
 // Connecting to PORT
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Config middleware
 // Parse request body as JSON
