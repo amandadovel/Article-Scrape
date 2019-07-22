@@ -20,10 +20,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to Mongo DB
-let databaseUri = process.env.MONGODB_URI || "mongodb://amandadovel:PUCCIb@by2755@ds253567.mlab.com:53567/heroku_88wkztr9";
-// mongoose.connect("mongodb://localhost/article_scraper", { useNewUrlParser: true });
-mongoose.connect(databaseUri);
-// let db = mongoose.connection;
+let MONGOD_URI = process.env.MONGODB_URI || "mongodb://localhost/article_scraper";
+
+// Connect to Mongo DB
+mongoose.connect(MONGOD_URI);
 
 // Configure handlebars
 app.engine(
