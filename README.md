@@ -1,7 +1,7 @@
 # Nomadic Matt Article-Scraper
 <a href="https://arcane-shelf-74654.herokuapp.com/">Article Scraper</a>
 
-<img src="/images/homepage-screen-shot.png" alt="home page">
+<img src="public/images/homepage-screen-shot.png" alt="home page">
 
 ## Functionality 💪
 #### Here's how the app works: 
