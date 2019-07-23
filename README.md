@@ -1,7 +1,7 @@
 # Nomadic Matt Article-Scraper
 <a href="https://arcane-shelf-74654.herokuapp.com/">Article Scraper</a>
 
-<img src="homepage-screen-shot.png" alt="home page">
+<img src="homepage-screen-shot.jpg" alt="home page">
 
 ## Functionality 💪
 #### Here's how the app works: 
@@ -20,8 +20,6 @@
     3.1 On the saved page the user will see each article they have saved and an option to comment on the article.
 
     3.2 There is an option to delete articles from the saved page and also to delete the comments after one is written. 
-
-<img src="saved-articles.png" alt="saved articles">
 
 ## Getting Started 🏁
 
