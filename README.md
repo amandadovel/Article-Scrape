@@ -1,4 +1,4 @@
-# Nomadic Matt Article-Scraper
+# Nomadic Matt Article-Scraper 🏝️🚀
 <a href="https://arcane-shelf-74654.herokuapp.com/">Article Scraper</a>
 
 <img src="public/images/homepage-screen-shot.png" alt="home page">
@@ -28,8 +28,11 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone repository. Click on the clone button next to the repository (clone with SSH). 
 2. Open Terminal and git clone (paste) into directory of your choice. 
 3. Open folder in VS Code. 
-4. The file structure follows an MVC pattern with the main diretories being `models`, `public`, `routes`, `views`, and a `server.js` file connecting the app to the server and the correct port. 
-5. `public` holds the assets, css, images and the javascript connecting to the html
+4. The file structure follows an MVC pattern with the main diretories being `models`, `public`, `routes`, `views`, and a                `server.js` file connecting the app to the server and the correct port. 
+5. the `models` folder handles the data of the application. 
+6. `public` holds the assets, css, images and the javascript which holds all the necessary 'on click' functions.
+7. The `routes` folder holds the logic for the routes which receives the user input, validates it and passes it through the modls.
+8. Inside of the `views` folder are the handlebars files which dynamically displays information on the web page. 
 
 
 ## Pre-Requisites ✔️
@@ -37,6 +40,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Node - use this site to install node into your computer: https://nodejs.org/en/download/
     *to check if node is installed type node -v into your terminal. If installed it will print the version number on the screen.
 2. NPM (https://www.npmjs.com/) - Node Package Manager. Use this site to assist in downloading packages or modules. 
+3. Install dependencies using `npm install`.
 
 ## Built With 🔧
 
@@ -46,12 +50,16 @@ These instructions will get you a copy of the project up and running on your loc
 * [Express] (https://www.npmjs.com/package/express) - Node.js web app framework designed to make developing websites, web apps, & API's much easier.
 * [Handlebars] (https://handlebarsjs.com/) - Handlebars allows you to separate the generation of HTML from the rest of your JavaScript and write cleaner code.
 * [MVC] - (https://www.geeksforgeeks.org/mvc-design-pattern/) - The Model-View-Controller is an architectural pattern that separates an application into three main logical components: the model, the view, and the controller.
-* [Mongoose] - (https://mongoosejs.com/docs/) - Manages relationships between data, provides schema validation, 
-* [Cheero] -
-* [Axios] -
+* [Mongoose] - (https://mongoosejs.com/docs/) - An object modeling tool for MongoDB. Manages relationships between data and translates between objects in code and the representation of them in MongoDB. 
+* [Cheerio] - (https://github.com/cheeriojs/cheerio) - Uses JQuery syntax for developers to work with downloaded web data and focus on the data rather than parsing through it. 
+* [Ajax] - (https://www.w3schools.com/xml/ajax_intro.asp) - Updates web page, sends data to server and also requests and receives data.
 * [Heroku] - (https://www.heroku.com/) - A cloud based platform that lets companies build, deliver, monitor and scale applications.
  
 
-## Authors ⌨️
+## Author ⌨️
 
 *** Amanda Dovel *** - [amandadovel](https://github.com/amandadovel)
+
+## Acknowledgments 🌟
+
+* Amber Burroughs, Tutoring badass
