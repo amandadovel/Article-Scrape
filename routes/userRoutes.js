@@ -19,6 +19,7 @@ router.get("/", (req, res) => {
 router.get("/scrape", (req, res) => {
     // Grab body of html with axios
     axios.get("https://www.nomadicmatt.com/travel-blog/").then((response) => {
+        // console.log("route hit")
         // Load html body from axios into cheerio 
         // console.log(response.data);
         let $ = cheerio.load(response.data);
@@ -53,7 +54,6 @@ router.get("/scrape", (req, res) => {
                                     console.log(err);
                                 } else {
                                     // // Otherwise, log the inserted data
-                                    // console.log(inserted);
                                     count--
                                     if (count === 0) {
                                         res.json(total)
@@ -64,6 +64,7 @@ router.get("/scrape", (req, res) => {
                 });
             }
         });
+        res.status(200).redirect("/");
     });
 });
 
@@ -92,8 +93,8 @@ router.put("/saved/:id", (req, res) => {
 router.put("/unsaved/:id", (req, res) => {
 
     // update article to "saved: false"
-    db.Article.update({ _id: req.params.id }, { $set: { saved: req.body.saved }}, result => {
-        res.status(200).json({ message: "Saved Status Changed"})
+    db.Article.update({ _id: req.params.id }, { $set: { saved: req.body.saved } }, result => {
+        res.status(200).json({ message: "Saved Status Changed" })
     });
 });
 
@@ -101,7 +102,7 @@ router.put("/unsaved/:id", (req, res) => {
 router.post("/comment", (req, res) => {
     console.log("Req body", req.body);
     // Create a new Comment and pass the req.body to the entry
-    db.Comment.create({ commentText: req.body.comment})
+    db.Comment.create({ commentText: req.body.comment })
         .then(dbComment => {
             return db.Article.findOneAndUpdate({ _id: req.body.id },
                 { $push: { comment: dbComment._id } },
@@ -116,7 +117,7 @@ router.post("/comment", (req, res) => {
 // Delete comment
 router.delete("/delete/:id", (req, res) => {
     // find by id and delete from database
-    db.Comment.deleteOne({_id: req.params.id }).then(dbComment => {
+    db.Comment.deleteOne({ _id: req.params.id }).then(dbComment => {
         // redirect to saved page after delete
         res.status(200).redirect("/saved");
     }).catch(err => {

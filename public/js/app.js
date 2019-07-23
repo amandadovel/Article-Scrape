@@ -1,9 +1,11 @@
 $(document).ready(() => {
-    $("#scrape").on("click", () => {
-        $.getJSON("/scrape", response => {
-            // alert(`Successfully Scraped ${response} articles`)
-            window.location.reload();
-        })
+    // Scrape button
+    $("#scrape").on("click", (event) => {
+        $.get("/scrape").then(data => {
+            location.reload();
+        }).catch(err => {
+            res.json(err)
+        });
     });
 
     // When you click on the save article button
@@ -58,13 +60,13 @@ $(document).ready(() => {
         });
     });
 
+    // Clear button
+    $("#clear").on("click", (event) => {
+        $.get("api/clear")
+            .then(data => {
+                $(".container").empty();
+                location.reload();
+            });
+    });
 });
 
-// Clear button
-$("#clear").on("click", (event) => {
-    $.get("api/clear")
-        .then(data => {
-            $(".container").empty();
-            location.reload();
-        });
-});
