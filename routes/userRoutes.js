@@ -129,7 +129,7 @@ router.delete("/delete/:id", (req, res) => {
 router.get("/api/clear", (req, res) => {
     db.Article.deleteMany({}).then(data => {
         console.log(data);
-        res.send(true);
+        res.status(200).redirect("/");
     }).catch(err => {
         console.log(err);
     });

@@ -4,7 +4,7 @@ $(document).ready(() => {
         $.get("/scrape").then(data => {
             location.reload();
         }).catch(err => {
-            res.json(err)
+            console.log(err)
         });
     });
 
