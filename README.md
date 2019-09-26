@@ -44,16 +44,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Built With 🔧
 
-* [Node] (https://nodejs.org/en/download/) - As an asynchronous event driven JavaScript runtime, Node is designed to build scalable network applications. 
-* [Javascript] (https://www.javascript.com/) - JavaScript is the programming language of HTML and the Web
-* [JSON] (https://www.json.org/) - Javascript object notation, syntax for storing and exchanging information. 
-* [Express] (https://www.npmjs.com/package/express) - Node.js web app framework designed to make developing websites, web apps, & API's much easier.
-* [Handlebars] (https://handlebarsjs.com/) - Handlebars allows you to separate the generation of HTML from the rest of your JavaScript and write cleaner code.
-* [MVC] - (https://www.geeksforgeeks.org/mvc-design-pattern/) - The Model-View-Controller is an architectural pattern that separates an application into three main logical components: the model, the view, and the controller.
-* [Mongoose] - (https://mongoosejs.com/docs/) - An object modeling tool for MongoDB. Manages relationships between data and translates between objects in code and the representation of them in MongoDB. 
-* [Cheerio] - (https://github.com/cheeriojs/cheerio) - Uses JQuery syntax for developers to work with downloaded web data and focus on the data rather than parsing through it. 
-* [Ajax] - (https://www.w3schools.com/xml/ajax_intro.asp) - Updates web page, sends data to server and also requests and receives data.
-* [Heroku] - (https://www.heroku.com/) - A cloud based platform that lets companies build, deliver, monitor and scale applications.
+* [Node](https://nodejs.org/en/download/) - As an asynchronous event driven JavaScript runtime, Node is designed to build scalable network applications. 
+* [Javascript](https://www.javascript.com/) - JavaScript is the programming language of HTML and the Web
+* [JSON](https://www.json.org/) - Javascript object notation, syntax for storing and exchanging information. 
+* [Express](https://www.npmjs.com/package/express) - Node.js web app framework designed to make developing websites, web apps, & API's much easier.
+* [Handlebars](https://handlebarsjs.com/) - Handlebars allows you to separate the generation of HTML from the rest of your JavaScript and write cleaner code.
+* [MVC](https://www.geeksforgeeks.org/mvc-design-pattern/) - The Model-View-Controller is an architectural pattern that separates an application into three main logical components: the model, the view, and the controller.
+* [Mongoose](https://mongoosejs.com/docs/) - An object modeling tool for MongoDB. Manages relationships between data and translates between objects in code and the representation of them in MongoDB. 
+* [Cheerio](https://github.com/cheeriojs/cheerio) - Uses JQuery syntax for developers to work with downloaded web data and focus on the data rather than parsing through it. 
+* [Ajax](https://www.w3schools.com/xml/ajax_intro.asp) - Updates web page, sends data to server and also requests and receives data.
+* [Heroku](https://www.heroku.com/) - A cloud based platform that lets companies build, deliver, monitor and scale applications.
  
 
 ## Author ⌨️
